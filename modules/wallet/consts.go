@@ -19,11 +19,13 @@ const (
 	// rebroadcastInterval is the number of blocks the wallet will wait until
 	// it rebroadcasts an unconfirmed transaction by adding it to the
 	// transaction pool again.
-	rebroadcastInterval = 10
+	rebroadcastInterval = 8
 
-	// rebroadcastMaxTries is the maximum number of times a transaction set
-	// will be rebroadcasted before the wallet stops tracking it
-	rebroadcastMaxTries = 10
+	// RespendTimeout records the number of blocks that the wallet will wait
+	// before spending an output that has been spent in the past. If the
+	// transaction spending the output has not made it to the transaction pool
+	// after the limit, the assumption is that it never will.
+	RespendTimeout = 72
 )
 
 var (
